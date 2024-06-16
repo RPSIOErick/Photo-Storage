@@ -54,11 +54,16 @@ app.get('/', (req, res) => {
     app.get('/galeria', async (req, res) => {
         try {
             const [files] = await bucket.getFiles();
+            
+            // Mapeia os arquivos para URLs das imagens e nomes dos arquivos
             const images = files.map(file => {
-                return `https://storage.googleapis.com/${bucket.name}/${file.name}`;
+                return {
+                    url: `https://storage.googleapis.com/${bucket.name}/${file.name}`,
+                    name: file.name
+                };
             });
     
-            console.log(images); // Adicione este log para verificar as URLs das imagens
+            console.log(images); // Verifique as URLs e nomes das imagens no console
     
             res.render('gallery', { images });
         } catch (error) {
@@ -66,3 +71,4 @@ app.get('/', (req, res) => {
             res.status(500).send('Erro ao obter as imagens.');
         }
     });
+    
