@@ -15,12 +15,24 @@ const {
 const app = express()
 const port = 8081
 
-// Config Handlebars
-app.engine('handlebars', handlebars({ defaultLayout: 'main' }))
-app.set('view engine', 'handlebars')
 
-// Config Static Files
-app.use(express.static(path.join(__dirname, 'public')))
+// Configuração da View Engine
+app.use(express.static('public'));
+    
+app.engine('handlebars', handlebars({
+    defaultLayout: 'main',
+
+}))
+
+// Utilização da View Engine
+    app.set("view engine", "handlebars")
+
+// Pasta padrao de views
+    app.set('views', path.join(__dirname, '../views'));
+
+// Pasta padrao de css
+    app.use(express.static(path.join(__dirname, '../public')));
+
 
 // Config Body Parser
 app.use(bodyParser.urlencoded({ extended: false }))

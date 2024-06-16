@@ -1,6 +1,30 @@
-<h1>Upload de Imagem</h1>
-<form action="/upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="file" accept="image/*" required>
-    <button type="submit">Upload</button>
-</form>
-<a href="/gallery">Ver Galeria</a>
+<!--Title-->
+    <h1 class="text-danger">Upload de Imagem</h1>
+
+    <!--Form-->
+        <form action="/upload" method="post" enctype="multipart/form-data">
+
+        <!--Input Image Container-->
+            <div class="containerForm">
+                
+                <!--Image Preview-->
+                    <img src="../img/preVisualizacao.png" alt="Pré Visualização da Imagem a ser Enviada" id="imgPreview">
+
+                <!--Local onde fica o input com o button-->
+                    <div class="headerInput">
+                        <!--Input-->
+                            <input type="file" name="file" accept="image/*" id="inputIMG" required>
+
+                        <!--Button-->
+                            <button type="submit" class="btn btn-outline-danger" id="btnUpload">Upload</button>
+                    </div>
+                <!--Fim do Local onde fica o input com o button-->
+
+            </div>
+         <!--Fim do Input Image Container-->
+
+        </form>
+    <!--Fim do Forms-->
+
+<!--Script Imagem Previsualizada-->
+    <script src="../js/preVisualizacao.js"></script>
